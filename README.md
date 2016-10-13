@@ -37,3 +37,7 @@ Desenvolvedor:
 https://www.linkedin.com/in/desenvolvedor
 
 https://www.mindmeister.com/626643931/felipe-farias
+
+http://cursophprj.com.br/
+
+http://desenvolvedorphprj.com.br/
