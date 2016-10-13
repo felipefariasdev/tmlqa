@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Adicionar comentário</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="salvarComentario()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Nome</span>
+		  <input type="text" ng-model="comentario.nome" placeholder="Qual é o seu nome?">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="text" ng-model="comentario.email" placeholder="Qual é o seu email?">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Comentário</span>
+          <textarea ng-model="comentario.descricao" placeholder="Digite seu comentário" style="height: 50px"></textarea>
+
+        </label>
+        <label class="item">
+          <button class="button button-block button-balanced" type="submit">Salvar</button>
+        </label>
+        <label class="item">
+        		<button style=float:right class="button" ng-click="closeComentario()">Close</button>
+        	</label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

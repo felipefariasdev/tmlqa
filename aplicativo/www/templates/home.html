@@ -1,0 +1,34 @@
+<ion-view title="+LIVROS QUE AMIGOS">
+  <ion-content>
+  
+	<ion-item ng-repeat="x in data_noticias">
+      <a href="#/app/categoria/{{name_noticias_categoria}}/{{x.ID}}">
+        <img src="img/icon_{{name_noticias_categoria}}.jpg" style="float: left;margin-right: 10px">
+        <h2 ng-bind-html="x.title"></h2>
+        <div ng-repeat="(key,img) in x.featured_image.attachment_meta.sizes" ng-show="key=='thumbnail'" style="margin-top: 10px;">
+          <center><img src="{{img.url}}"></center>
+        </div>
+      </a>
+    </ion-item>
+	
+    <ion-item ng-repeat="x in data_livros">
+      <a href="#/app/categoria/{{name_livros_categoria}}/{{x.ID}}">
+        <img src="img/icon_{{name_livros_categoria}}.jpg" style="float: left;margin-right: 10px">
+        <h2 ng-bind-html="x.title"></h2>
+        <div ng-repeat="(key,img) in x.featured_image.attachment_meta.sizes" ng-show="key=='thumbnail'" style="margin-top: 10px;">
+          <center><img src="{{img.url}}"></center>
+        </div>
+      </a>
+    </ion-item>
+    <ion-item ng-repeat="x in data_filmes">
+      <a href="#/app/categoria/{{name_filmes_categoria}}/{{x.ID}}">
+        <img src="img/icon_{{name_filmes_categoria}}.jpg" style="float: left;margin-right: 10px">
+        <h2 ng-bind-html="x.title"></h2>
+        <div ng-repeat="(key,img) in x.featured_image.attachment_meta.sizes" ng-show="key=='thumbnail'" style="margin-top: 10px;">
+          <center><img src="{{img.url}}"></center>
+        </div>
+      </a>
+    </ion-item>
+    
+  </ion-content>
+</ion-view>

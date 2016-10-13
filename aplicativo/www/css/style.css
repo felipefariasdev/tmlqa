@@ -1,0 +1,31 @@
+.item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content {
+  padding-left: 10px;
+  min-height: 10px;
+}
+.item h2 {
+  white-space: normal!important;
+  font-size: 16px!important;
+}
+.item-icon-right {
+  padding-right: 0px!important;
+}
+.platform-android .bar .title {
+  margin-left: 35px!important;
+}
+.item p {
+  font-size: 18px;
+}
+.item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /*white-space: nowrap;*/
+  white-space: normal!important;
+}
+img {
+    max-width: 100%!important;
+    height: auto;
+}
+iframe {
+    max-width: 100%!important;
+    height: 250px!important;
+}

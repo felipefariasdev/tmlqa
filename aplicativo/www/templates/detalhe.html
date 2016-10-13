@@ -1,0 +1,40 @@
+<ion-view title="{{categoria | uppercase}}">
+  <ion-content ng-init="getComentariosPostDetalhe()">
+    <ion-item>
+      <img src="img/icon_{{categoria}}.jpg" style="float: left;margin-right: 10px">
+      <h2 ng-bind-html="data.title"></h2>
+      <div ng-repeat="(key,img) in data.featured_image.attachment_meta.sizes" ng-show="key=='newedge-small'" style="margin-top: 10px;">
+        <center><img src="{{img.url}}"></center>
+      </div>
+    </ion-item>
+    <ion-item style="white-space: normal!important;">
+      <div ng-bind-html="content" style="text-align: justify;"></div>
+    </ion-item>
+    <ion-item>
+      <img src="img/icon_{{categoria}}.jpg" style="float: left;margin-right: 10px">Comentários <a href="javascript:void(0)"><span class="ion-compose balanced" style="font-size: x-large;" data-pack="default" ng-click="open_comentario(data.ID,0);"></span></a>
+    </ion-item>
+    <ion-item ng-repeat="x1 in comments" ng-show="x1.parent_id==0">
+        
+		<!-- comentario1 inicio -->
+		<h2 ng-bind-html="x1.comentario" style=""></h2>
+        <strong style="">{{x1.nome}},</strong> <span style="color:#a2a2a2">{{x1.data}} <a href="javascript:void(0)"><span class="ion-reply balanced" style="font-size: x-large;" data-pack="default" ng-click="open_comentario(data.ID,x1.id);"></span></a></span><br />
+		<!-- comentario1 fim -->
+		
+			<div ng-repeat="x2 in comments" ng-show="x1.id==x2.parent_id" style="padding-left: 20px;float:left">
+				<!-- comentario2 inicio -->
+				<hr /><h2 ng-bind-html="x2.comentario" style=""></h2>
+				<strong>{{x2.author.name}},</strong> <span style="color:#a2a2a2">{{x2.data}} <a href="javascript:void(0)"><span class="ion-reply balanced" style="font-size: x-large;" data-pack="default" ng-click="open_comentario(data.ID,x2.id);"></span></a></span><br />
+				<!-- comentario2 fim -->
+			
+				
+				<span ng-repeat="x3 in comments" ng-show="x2.id==x3.parent_id" style="padding-left: 20px;float:left">
+				<!-- comentario3 inicio -->
+				<hr />
+				<h2 ng-bind-html="x3.comentario"></h2>
+				<strong>{{x3.nome}},</strong> <span style="color:#a2a2a2">{{x3.data}}</span><br />
+				<!-- comentario3 fim -->
+				</span>
+			</div>
+    </ion-item>
+  </ion-content>
+</ion-view>
