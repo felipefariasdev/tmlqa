@@ -7,7 +7,7 @@ Mas também falamos sobre filmes, séries, músicas e também notícias sobre os
 
 
 - Site: http://tmlqa.com.br
-- WebApp: http://tmlqa.com.br/app
+- Web App: http://tmlqa.com.br/app
 - APP Android: http://tmlqa.com.br/app.apk
 - Google Play pesquisar: TMLQA
 
