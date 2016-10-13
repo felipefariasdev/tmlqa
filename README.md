@@ -30,3 +30,9 @@ Performance:
 - Vanish cache.
 - Minify HTML and any CSS or JS.
 
+---------------------------------------
+
+Desenvolvedor:
+
+https://www.linkedin.com/in/desenvolvedor
+https://www.mindmeister.com/626643931/felipe-farias
