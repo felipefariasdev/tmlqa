@@ -1,6 +1,10 @@
 # TMLQA - Tenho mais livros que amigos
 ---------------------------------
 
+Conteúdo principal é a resenha de livros.
+
+Mas também falamos sobre filmes, séries, músicas e também notícias sobre os assuntos publicados.
+
 
 - Site: http://tmlqa.com.br
 - WebApp: http://tmlqa.com.br/app
