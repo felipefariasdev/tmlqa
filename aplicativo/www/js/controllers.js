@@ -81,11 +81,11 @@ angular.module('starter.controllers', [])
   })
   .controller('HomeCtrl', function($scope,$http,$rootScope) {
     $scope.name_livros_categoria = "livros";
-    $http.get('http://tmlqa.com.br/wp-json/posts?filter[category_name]=livros&filter[posts_per_page]=1').success(function(response) {
+    $http.get('http://tmlqa.com.br/wp-json/posts?filter[category_name]=livros&filter[posts_per_page]=2').success(function(response) {
       $scope.data_livros = (response);
     });
     $scope.name_filmes_categoria = "filmes";
-    $http.get('http://tmlqa.com.br/wp-json/posts?filter[category_name]=filmes&filter[posts_per_page]=1').success(function(response) {
+    $http.get('http://tmlqa.com.br/wp-json/posts?filter[category_name]=filmes&filter[posts_per_page]=2').success(function(response) {
       $scope.data_filmes = (response);
     });
     $scope.name_noticias_categoria = "noticias";

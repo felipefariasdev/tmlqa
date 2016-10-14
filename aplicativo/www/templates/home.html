@@ -17,16 +17,6 @@
         </div>
       </a>
     </ion-item>
-
-    <ion-item ng-repeat="x in data_livros" ng-show="!data_buscar">
-      <a href="#/app/categoria/{{name_livros_categoria}}/{{x.ID}}">
-
-        <h2 ng-bind-html="x.title"></h2>
-        <div ng-repeat="(key,img) in x.featured_image.attachment_meta.sizes" ng-show="key=='thumbnail'" style="margin-top: 10px;">
-          <center><img src="{{img.url}}"></center>
-        </div>
-      </a>
-    </ion-item>
   
 	<ion-item ng-repeat="x in data_noticias" ng-show="!data_buscar">
       <a href="#/app/categoria/{{name_noticias_categoria}}/{{x.ID}}">
@@ -37,7 +27,7 @@
         </div>
       </a>
     </ion-item>
-	
+
     <ion-item ng-repeat="x in data_livros" ng-show="!data_buscar">
       <a href="#/app/categoria/{{name_livros_categoria}}/{{x.ID}}">
         <img src="img/icon_{{name_livros_categoria}}.jpg" style="float: left;margin-right: 10px">
