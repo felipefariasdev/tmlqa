@@ -34,15 +34,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           }
         }
       })
-      .state('app.buscar', {
-        url: '/buscar/{value_search}',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/buscar.html',
-            controller: 'BuscarCtrl'
-          }
-        }
-      })
       .state('app.home', {
         url: '/home',
         views: {

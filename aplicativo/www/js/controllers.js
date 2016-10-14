@@ -2,6 +2,22 @@ angular.module('starter.controllers', [])
 
   .controller('AppCtrl', function($scope, $ionicModal, $timeout,$http,$rootScope) {
 
+      $scope.localizar_menu = function (value_buscar) {
+
+          $rootScope.localizar_site(value_buscar);
+      };
+
+      $rootScope.localizar_site = function(valor) {
+          if(valor.length>=3){
+              $scope.buscar_por = (valor);
+              $http.get('http://tmlqa.com.br/wp-json/posts?filter[posts_per_page]=10&filter[s]='+valor).success(function(response) {
+                  $scope.data_buscar = (response);
+              });
+          }else{
+              $scope.data_buscar = false;
+          }
+      };
+
     $scope.comentario = {};
 
     $ionicModal.fromTemplateUrl('templates/add_comentario.html', {
@@ -39,7 +55,7 @@ angular.module('starter.controllers', [])
   })
   .controller('CategoriaCtrl', function($scope,$http,$stateParams) {
     $scope.categoria = ($stateParams.categoria);
-    $http.get('http://tmlqa.com.br/wp-json/posts?filter[category_name]='+$scope.categoria+'&filter[orderby]=date&order=asc').success(function(response) {
+    $http.get('http://tmlqa.com.br/wp-json/posts?filter[posts_per_page]=20&filter[category_name]='+$scope.categoria+'&filter[orderby]=date&order=asc').success(function(response) {
       $scope.data = (response);
     });
   })
@@ -55,10 +71,6 @@ angular.module('starter.controllers', [])
         $http.post('http://tmlqa.com.br/api/comentario/list',{'post_id':$stateParams.id}).success(function(response) {
             $scope.comments = (response.comentarios);
         });
-	    /*
-		$http.get('http://tmlqa.com.br/wp-json/posts/'+$stateParams.id+'/comments').success(function(response) {
-		  $scope.comments = (response);
-		});*/
 	};
     
   })
@@ -67,14 +79,7 @@ angular.module('starter.controllers', [])
 			$scope.data = (response);
 		});
   })
-  .controller('BuscarCtrl', function($scope,$http,$stateParams) {
-		var value_search = ($stateParams.value_search);
-		$scope.name_livros_categoria = "livros";
-    	$http.get('http://tmlqa.com.br/wp-json/posts?filter[s]='+value_search).success(function(response) {
-      	$scope.data = (response);
-    	});
-  })
-  .controller('HomeCtrl', function($scope,$http) {
+  .controller('HomeCtrl', function($scope,$http,$rootScope) {
     $scope.name_livros_categoria = "livros";
     $http.get('http://tmlqa.com.br/wp-json/posts?filter[category_name]=livros&filter[posts_per_page]=1').success(function(response) {
       $scope.data_livros = (response);

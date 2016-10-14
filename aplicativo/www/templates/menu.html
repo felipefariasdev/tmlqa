@@ -14,7 +14,7 @@
 	  <ion-nav-buttons side="right">
 		<div class="bar bar-header item-input-inset" ng-show="exibir_busca=='sim'">
         	
-<a href="javascript:void(0)" ng-click="exibir_busca='nao'">
+<a href="javascript:void(0)" ng-click="exibir_busca='nao';value_buscar='';localizar_menu(this.value_buscar)">
 
 <span class="icon ion-ios-close placeholder-icon" style="font-size:x-large;background-color: #f8f8f8"></span>
 
@@ -22,11 +22,9 @@
          		
                     <label class="item-input-wrapper">
  		
-                    <input type="search" ng-model="value_buscar" placeholder="Localizar no TMLQA">
+                    <input type="search" ng-model="value_buscar" placeholder="Localizar no TMLQA" ng-keyup="localizar_menu(this.value_buscar)">
                     </label>
-                    	<a href="#/app/buscar/{{value_buscar}}" ng-click="exibir_busca='nao'">
-								<i class="icon ion-ios-search placeholder-icon" style="font-size: xx-large;"></i>                
-                		</a> 
+
                     
                     
                 
@@ -113,6 +111,18 @@
         </ion-item>
 
       </ion-list>
+
+
+
     </ion-content>
+
   </ion-side-menu>
+
+
+
+
 </ion-side-menus>
+
+
+
+
