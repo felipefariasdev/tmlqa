@@ -13,21 +13,13 @@
 	  
 	  <ion-nav-buttons side="right">
 		<div class="bar bar-header item-input-inset" ng-show="exibir_busca=='sim'">
-        	
-<a href="javascript:void(0)" ng-click="exibir_busca='nao';value_buscar='';localizar_menu(this.value_buscar)">
 
-<span class="icon ion-ios-close placeholder-icon" style="font-size:x-large;background-color: #f8f8f8"></span>
-
-</a>
-         		
-                    <label class="item-input-wrapper">
- 		
-                    <input type="search" ng-model="value_buscar" placeholder="Localizar no TMLQA" ng-keyup="localizar_menu(this.value_buscar)">
-                    </label>
-
-                    
-                    
-                
+            <a href="javascript:void(0)" ng-click="exibir_busca='nao';value_buscar='';localizar_menu(this.value_buscar)">
+              <span class="icon ion-ios-close placeholder-icon" style="font-size:xx-large;background-color: #f8f8f8;padding-left: 38px;"></span>
+            </a>
+            <label class="item-input-wrapper">
+            <input type="search" ng-model="value_buscar" placeholder="Localizar no TMLQA" ng-keyup="localizar_menu(this.value_buscar)">
+            </label>
 		</div>
 
 		<a href="javascript:void(0)" ng-click="exibir_busca='sim'">
