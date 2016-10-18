@@ -45,12 +45,30 @@ angular.module('starter.controllers', [])
   })
   .controller('CategoriaCtrl', function($scope,$http,$stateParams) {
     $scope.categoria = ($stateParams.categoria);
+
+        if($scope.categoria=='musica'){
+            $scope.categoria_titulo = 'Música';
+        }else if($scope.categoria=='promocoes'){
+            $scope.categoria_titulo = 'Promoções';
+        }else{
+            $scope.categoria_titulo = $scope.categoria;
+        }
+
+
     $http.get('http://tmlqa.com.br/wp-json/posts?filter[posts_per_page]=20&filter[category_name]='+$scope.categoria+'&filter[orderby]=date&order=asc').success(function(response) {
       $scope.data = (response);
     });
   })
   .controller('DetalheCtrl', function($scope,$http,$stateParams,$sce,$rootScope) {
     $scope.categoria = ($stateParams.categoria);
+      if($scope.categoria=='musica'){
+          $scope.categoria_titulo = 'Música';
+      }else if($scope.categoria=='promocoes'){
+          $scope.categoria_titulo = 'Promoções';
+      }else{
+          $scope.categoria_titulo = $scope.categoria;
+      }
+
     var id = ($stateParams.id);
     $http.get('http://tmlqa.com.br/wp-json/posts/'+id).success(function(response) {
       $scope.content = $sce.trustAsHtml(response.content);

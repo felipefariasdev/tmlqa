@@ -3,6 +3,15 @@
     <div class="resultados_encontrados" ng-show="data_buscar">
         <p>Resultados encontrados</p>
     </div>
+    <ion-item ng-repeat="x in data_promocoes" ng-show="!data_buscar">
+      <a href="#/app/categoria/{{name_promocoes_categoria}}/{{x.ID}}">
+        <img src="img/icon_promocoes.jpg" style="float: left;margin-right: 10px">
+        <h2 ng-bind-html="x.title"></h2>
+        <div ng-repeat="(key,img) in x.featured_image.attachment_meta.sizes" ng-show="key=='thumbnail'" style="margin-top: 10px;">
+          <center><img src="{{img.url}}"></center>
+        </div>
+      </a>
+    </ion-item>
     <ion-item ng-repeat="x in data_buscar" ng-show="data_buscar">
       <a href="#/app/categoria/livros/{{x.ID}}">
         <h2 ng-bind-html="x.title"></h2>
@@ -32,15 +41,6 @@
     <ion-item ng-repeat="x in data_filmes" ng-show="!data_buscar">
       <a href="#/app/categoria/{{name_filmes_categoria}}/{{x.ID}}">
         <img src="img/icon_{{name_filmes_categoria}}.jpg" style="float: left;margin-right: 10px">
-        <h2 ng-bind-html="x.title"></h2>
-        <div ng-repeat="(key,img) in x.featured_image.attachment_meta.sizes" ng-show="key=='thumbnail'" style="margin-top: 10px;">
-          <center><img src="{{img.url}}"></center>
-        </div>
-      </a>
-    </ion-item>
-	<ion-item ng-repeat="x in data_promocoes" ng-show="!data_buscar">
-      <a href="#/app/categoria/{{name_promocoes_categoria}}/{{x.ID}}">
-        <img src="img/icon_time.jpg" style="float: left;margin-right: 10px">
         <h2 ng-bind-html="x.title"></h2>
         <div ng-repeat="(key,img) in x.featured_image.attachment_meta.sizes" ng-show="key=='thumbnail'" style="margin-top: 10px;">
           <center><img src="{{img.url}}"></center>
