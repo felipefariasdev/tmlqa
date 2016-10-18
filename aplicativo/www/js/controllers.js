@@ -1,25 +1,17 @@
 angular.module('starter.controllers', [])
-
   .controller('AppCtrl', function($scope, $ionicModal, $timeout,$http,$rootScope) {
 
-      $scope.localizar_menu = function (value_buscar) {
-
-          $rootScope.localizar_site(value_buscar);
-      };
-
-      $rootScope.localizar_site = function(valor) {
-          if(valor.length>=3){
-              $scope.buscar_por = (valor);
-              $http.get('http://tmlqa.com.br/wp-json/posts?filter[posts_per_page]=10&filter[s]='+valor).success(function(response) {
-                  $scope.data_buscar = (response);
-              });
-          }else{
-              $scope.data_buscar = false;
-          }
-      };
-
+    $scope.searchMenu = function(valor) {
+      if(valor.length>=3){
+          $scope.buscar_por = (valor);
+          $http.get('http://tmlqa.com.br/wp-json/posts?filter[posts_per_page]=10&filter[s]='+valor).success(function(response) {
+              $scope.data_buscar = (response);
+          });
+      }else{
+          $scope.data_buscar = false;
+      }
+    };
     $scope.comentario = {};
-
     $ionicModal.fromTemplateUrl('templates/add_comentario.html', {
       scope: $scope
     }).then(function(modal) {
@@ -37,17 +29,12 @@ angular.module('starter.controllers', [])
 		$scope.post_id = post_id;
 		$scope.modal.show();
     };
-
     $scope.salvarComentario = function() {
-		
 		$http.post('http://tmlqa.com.br/api/comentario/save',{'post_id':$scope.post_id,'nome':$scope.comentario.nome,'email':$scope.comentario.email,'comentario':$scope.comentario.descricao,'parent_id':$scope.parent_id}).success(function(response) {
 			$timeout(function() {
 					$rootScope.getComentariosPostDetalhe();
 			  }, 0);
 		});
-		
-		
-	
       $timeout(function() {
         $scope.closeComentario();
       }, 0);
@@ -66,13 +53,11 @@ angular.module('starter.controllers', [])
       $scope.content = $sce.trustAsHtml(response.content);
       $scope.data = (response);
     });
-	
 	$rootScope.getComentariosPostDetalhe = function() {
         $http.post('http://tmlqa.com.br/api/comentario/list',{'post_id':$stateParams.id}).success(function(response) {
             $scope.comments = (response.comentarios);
         });
 	};
-    
   })
   .controller('TimeCtrl', function($scope,$http) {
 		$http.get('http://tmlqa.com.br/wp-json/pages/234').success(function(response) {
@@ -92,5 +77,8 @@ angular.module('starter.controllers', [])
     $http.get('http://tmlqa.com.br/wp-json/posts?filter[category_name]=noticias&filter[posts_per_page]=2').success(function(response) {
       $scope.data_noticias = (response);
     });
-   
+	$scope.name_promocoes_categoria = "promocoes";
+    $http.get('http://tmlqa.com.br/wp-json/posts?filter[category_name]=promocoes&filter[posts_per_page]=2').success(function(response) {
+      $scope.data_promocoes = (response);
+    });
   });

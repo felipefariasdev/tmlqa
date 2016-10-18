@@ -1,23 +1,18 @@
 <ion-view title="TIME">
-  <ion-content>
-      <ion-item ng-show="data_buscar">
-
-          <h2 style="float: left;padding-left: 40%">Buscar por <strong>({{buscar_por}})</strong></h2>
-
-      </ion-item>
-
-
+    <ion-content>
+        <div style="resultados_encontrados" ng-show="data_buscar">
+            <p>Resultados encontrados</p>
+        </div>
       <ion-item ng-repeat="x in data_buscar" ng-show="data_buscar">
           <a href="#/app/categoria/livros/{{x.ID}}">
-
               <h2 ng-bind-html="x.title"></h2>
               <div ng-repeat="(key,img) in x.featured_image.attachment_meta.sizes" ng-show="key=='thumbnail'" style="margin-top: 10px;">
                   <center><img src="{{img.url}}"></center>
               </div>
           </a>
-      </ion-item>
-      <ion-item ng-show="!data_buscar">
-		  <p ng-bind-html="data.content"></p>
-      </ion-item>
+    </ion-item>
+    <ion-item ng-show="!data_buscar">
+	    <p ng-bind-html="data.content"></p>
+    </ion-item>
   </ion-content>
 </ion-view>

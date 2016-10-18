@@ -29,3 +29,11 @@ iframe {
     max-width: 100%!important;
     height: 250px!important;
 }
+.resultados_encontrados{
+	padding-left: 15px;
+    padding-top: 10px;font-size: small;
+    color: darkgray;
+}
+.search_header{
+    padding-left: 0px;padding-right: 0px;width: 100%;position: fixed;
+}
