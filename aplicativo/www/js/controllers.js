@@ -2,6 +2,9 @@ angular.module('starter.controllers', [])
   .controller('AppCtrl', function($scope, $ionicModal, $timeout,$http,$rootScope) {
 
     $scope.searchMenu = function(valor) {
+        $rootScope.searchMenuGlobal(valor);
+    };
+    $rootScope.searchMenuGlobal = function(valor) {
       if(valor.length>=3){
           $scope.buscar_por = (valor);
           $http.get('http://tmlqa.com.br/wp-json/posts?filter[posts_per_page]=10&filter[s]='+valor).success(function(response) {
