@@ -59,7 +59,7 @@ angular.module('starter.controllers', [])
       $scope.data = (response);
     });
   })
-  .controller('DetalheCtrl', function($scope,$http,$stateParams,$sce,$rootScope) {
+  .controller('DetalheCtrl', function($scope,$http,$stateParams,$rootScope) {
     $scope.categoria = ($stateParams.categoria);
       if($scope.categoria=='musica'){
           $scope.categoria_titulo = 'Música';
@@ -71,7 +71,8 @@ angular.module('starter.controllers', [])
 
     var id = ($stateParams.id);
     $http.get('http://tmlqa.com.br/wp-json/posts/'+id).success(function(response) {
-      $scope.content = $sce.trustAsHtml(response.content);
+      
+      $scope.content = (response.content);
       $scope.data = (response);
     });
 	$rootScope.getComentariosPostDetalhe = function() {
